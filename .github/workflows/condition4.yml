@@ -1,0 +1,11 @@
+name: Conditionnel sur Dernier Message de Commit
+
+on: push
+
+jobs:
+  check-last-commit-message:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'wesh')
+    steps:
+      - name: Exécuter un script si le dernier message de commit contient 'wesh'
+        run: echo "Le mot 'wesh' a été trouvé dans le dernier message de commit."
