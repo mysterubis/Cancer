@@ -20,7 +20,7 @@ jobs:
   test: 
       runs-on: unbuntu-latest
       needs: build 
-      if : 'always-failure()'
+      if : always()
       steps: 
         - name : Display
           run: echo 'Le job precedent a echoue'
