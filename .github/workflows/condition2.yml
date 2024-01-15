@@ -14,15 +14,27 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Execute empty.py
-      run: python empty.py
+    - name : Execute python 
+      run :  python empty.py 
+      
+    test: 
+      runs-on: unbuntu-latest
+      needs: build 
+      if : failure ()
+      steps: 
+        - name : Display
+          run: echo 'Le job precedent a echoue'
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
+
+   # - name: Execute empty.py
+   #   run: python empty.py
+
+ # test:
+  #  runs-on: ubuntu-latest
+   # needs: build
     
-    steps:
-    - name: Display Failure Message
-      run: echo "Le job precedent a echoué"
+    #steps:
+    #- name: Display Failure Message
+     # run: echo "Le job precedent a echoué"
 
 
